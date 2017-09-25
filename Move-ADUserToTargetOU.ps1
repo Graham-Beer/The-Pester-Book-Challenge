@@ -59,7 +59,7 @@ Function Move-ADUserToTargetOU {
                     throw 'Ambiguous OU, cannot move user.'
                 } elseif ($targetOU.DistinguishedName -ne $userOU) {
                     $Move = @{
-                        Identity    = $ADAccount
+                        Identity    = $ADAccount.DistinguishedName
                         TargetPath  = $TargetOU
                         Server      = $targetOUParams.Server
                         ErrorAction = 'Stop'
